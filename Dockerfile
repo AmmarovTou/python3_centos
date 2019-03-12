@@ -1,14 +1,11 @@
 FROM centos
 
-RUN yum update -y \
-    && yum groupinstall -y "development tools" \
-    && yum install -y https://centos7.iuscommunity.org/ius-release.rpm  \
+RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm  \
     && yum update -y \
-    && yum install -y python-devel python36u python36u-pip \
-    && ln -fs /usr/bin/python3.6 /usr/bin/python \
-    && ln -fs /usr/bin/pip3.6 /usr/bin/pip \
-    && pip install --upgrade pip \ 
-    && pip install mock pytest tox \
+    && yum install -y python36u python36u-libs python36u-devel python36u-pip \
+    && ln -s /usr/bin/python3.6 /usr/bin/python3 \
+    && ln -s /usr/bin/pip3.6 /usr/bin/pip3 \
+    && pip3 install --upgrade pip \ 
+    && pip3 install mock pytest tox \
     && rm -rfv /var/cache/yum \
     && rm -rfv ~/.cache/pip
-    
