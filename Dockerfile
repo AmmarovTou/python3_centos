@@ -6,6 +6,6 @@ RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm  \
     && ln -s /usr/bin/python3.6 /usr/bin/python3 \
     && ln -s /usr/bin/pip3.6 /usr/bin/pip3 \
     && pip3 install --upgrade pip \ 
-    && pip3 install mock pytest tox \
+    && pip3 install mock pytest tox wheel \
     && rm -rfv /var/cache/yum \
     && rm -rfv ~/.cache/pip
